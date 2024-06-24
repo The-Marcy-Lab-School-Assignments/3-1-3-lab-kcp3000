@@ -9,6 +9,7 @@ import {
   getAuthor,
   createNewUser,
 } from './fetch-functions.js';
+import { get } from 'fetch-mock';
 
 export default async function app(appDiv) {
   const bookListEl = document.createElement('ul');
@@ -26,15 +27,21 @@ export default async function app(appDiv) {
   const newUserFormEl = document.createElement('form');
   newUserFormEl.id = 'new-user-form';
   appDiv.append(newUserFormEl);
+
   // Render the form!
-  // renderNewUserForm;
+  renderNewUserForm(newUserFormEl)
 
   // Fetch the books!
-  // const books =
+  const books = await getFirstThreeFantasyBooks()
+  console.log(books)
   // render out the books
-  // renderBookList
+  renderBookList(bookListEl, books)
 
-  // bookListEl.addEventListener('???', () => {})
+  const author = await getAuthor()
 
-  // newUserFormEl.addEventListener('???', () => {})
+  //bookListEl.addEventListener('click', renderAuthorInfo())
+
+  //newUserFormEl.addEventListener('submit', (createNewUser()))
+
+  //renderNewUser(newUserEl)
 }
