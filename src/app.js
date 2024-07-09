@@ -39,6 +39,23 @@ export default async function app(appDiv) {
 
   const author = await getAuthor()
 
+  /*
+  FEEDBACK: 
+  The goals of each event listener here should be 
+  1: 
+    First check if the element that you clicked on in the bookListEl a button. 
+    If it is, we want to get the data set of the button, 
+    next, run getAuthor with the dataset as the argument.
+    Afterwards, you'll take what that returns, lets call it the author object,
+    and run renderAuthorInfo with the authorInfoEl and the author obj as arguments.
+  2:
+    Firstly, since this is a submit event listener, 
+    we'd wanna prevent the page from refreshing. 
+    After, we'd wanna get the form data from the form
+    we would then run createNewUser while running the form data as the argument,
+    lastly we'd wanna take the user that function returned and run renderNewUser with the newUserEl and the new user passed in. 
+  */
+
   //bookListEl.addEventListener('click', renderAuthorInfo())
 
   //newUserFormEl.addEventListener('submit', (createNewUser()))
